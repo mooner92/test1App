@@ -8,10 +8,14 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.test1.databinding.FragmentCalendarBinding
+import com.google.firebase.database.DatabaseReference   //이게 추가됐음 lateinit 후에
 
 class CalendarFragment : Fragment() {
 
     private var _binding: FragmentCalendarBinding? = null
+    private lateinit var database: DatabaseReference
+
+    //database = Firebase.database.reference
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -32,6 +36,7 @@ class CalendarFragment : Fragment() {
         calendarViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
         return root
     }
 

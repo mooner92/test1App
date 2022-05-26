@@ -21,19 +21,20 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View {  //view안에 컴포넌트들 정리
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val root: View = binding.root  //root 지정
 
         val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
-        return root
+        return root  //root out
     }
+    //또다른 뷰가 생기면 여기에 작성
 
     override fun onDestroyView() {
         super.onDestroyView()
